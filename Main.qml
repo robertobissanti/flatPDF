@@ -165,8 +165,13 @@ ApplicationWindow {
                         }
 
                         onEditTextChanged: {
-                            if (!acceptableInput && editText.length > 0)
+                            if (acceptableInput && editText.length > 0) {
+                                lastValid = editText
+                                pdfFlattener.dpi = parseInt(editText, 10)
+                                root.resetEstimate()
+                            } else if (!acceptableInput && editText.length > 0) {
                                 pdfFlattener.dpi = parseInt(lastValid, 10)
+                            }
                         }
 
                         onFocusChanged: if (!focus && !acceptableInput) editText = lastValid
@@ -201,8 +206,13 @@ ApplicationWindow {
                         }
 
                         onEditTextChanged: {
-                            if (!acceptableInput && editText.length > 0)
+                            if (acceptableInput && editText.length > 0) {
+                                lastValid = editText
+                                pdfFlattener.quality = parseInt(editText, 10)
+                                root.resetEstimate()
+                            } else if (!acceptableInput && editText.length > 0) {
                                 pdfFlattener.quality = parseInt(lastValid, 10)
+                            }
                         }
 
                         onFocusChanged: if (!focus && !acceptableInput) editText = lastValid

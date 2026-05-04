@@ -153,19 +153,35 @@ static QList<int> quickSamplePages(int pageCount)
 {
     QList<int> pages;
     if (pageCount <= 0) return pages;
-    pages << 1;
-    if (pageCount > 2) pages << qCeil(pageCount / 2.0);
-    if (pageCount > 1) pages << pageCount;
+
+    const int sampleCount = qMax(1, qMin(10, qCeil(pageCount * 0.20)));
+    if (sampleCount >= pageCount) {
+        for (int page = 1; page <= pageCount; ++page) pages << page;
+        return pages;
+    }
 
     QSet<int> seen;
-    QList<int> unique;
-    for (int page : pages) {
-        if (page >= 1 && page <= pageCount && !seen.contains(page)) {
+    for (int i = 0; i < sampleCount; ++i) {
+        const double position = sampleCount == 1
+            ? 1.0
+            : 1.0 + (static_cast<double>(pageCount - 1) * i / (sampleCount - 1));
+        int page = qRound(position);
+        page = qBound(1, page, pageCount);
+        if (!seen.contains(page)) {
             seen.insert(page);
-            unique << page;
+            pages << page;
         }
     }
-    return unique;
+
+    for (int page = 1; pages.size() < sampleCount && page <= pageCount; ++page) {
+        if (!seen.contains(page)) {
+            seen.insert(page);
+            pages << page;
+        }
+    }
+
+    std::sort(pages.begin(), pages.end());
+    return pages;
 }
 
 static QVariantMap makePreset(const QString& presetName)

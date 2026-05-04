@@ -89,6 +89,7 @@ CMakeLists.txt.user*
 .rcc/
 .uic/
 /build*/
+dist/
 
 # Qt/Qt6 auto-generated artifacts sometimes land in source tree
 *_autogen/

@@ -16,7 +16,7 @@
 
 flatPDF rende piatti i documenti PDF convertendo ogni pagina in un'immagine temporanea e ricostruendo un nuovo PDF basato su immagini. E' utile quando serve un PDF non modificabile e visivamente stabile, mantenendo l'aspetto originale delle pagine.
 
-## Funzionalita
+## Funzionalità
 
 - Conversione da PDF a PDF piatto
 - Rendering intermedio PNG e JPG

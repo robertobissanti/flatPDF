@@ -8,8 +8,8 @@
   <a href="README.md">English</a> · <a href="README_it.md">Italiano</a>
 </p>
 
-![Release](https://img.shields.io/github/v/release/robertobissanti/flatPDF?label=release)
-![Licenza](https://img.shields.io/github/license/robertobissanti/flatPDF)
+![Release](https://img.shields.io/github/v/release/robertobissanti/flatPDF?label=release&color=blue&cacheSeconds=60)
+![Licenza](https://img.shields.io/github/license/robertobissanti/flatPDF?color=blue&cacheSeconds=60)
 ![Piattaforma](https://img.shields.io/badge/platform-macOS-lightgrey)
 ![Architettura](https://img.shields.io/badge/arch-Apple%20Silicon-blue)
 ![Qt](https://img.shields.io/badge/Qt-6.x-41CD52)
